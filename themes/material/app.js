@@ -80,6 +80,7 @@ function list(path){
 	    </div> 
 	    </li> 
 	  </ul> 
+
 	 </div> 
 	 <div class="mdui-row"> 
 	  <ul id="list" class="mdui-list"> 
