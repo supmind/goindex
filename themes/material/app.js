@@ -256,7 +256,31 @@ function file_video(path){
 <div class="mdui-container-fluid">
 	<br>
 <div id="dplayer"></div>
-
+    <script>
+        if (Hls.isSupported() && p2pml.hlsjs.Engine.isSupported()) {
+            window.dp = new DPlayer({
+                container: document.getElementById("dplayer"),
+                video: {
+                    url: "${url}",
+                    type: "customHls",
+                    customType: {
+                        "customHls": function (video, player) {
+                            const engine = new p2pml.hlsjs.Engine();
+                            const hls = new Hls({
+                                liveSyncDurationCount: 7, // To have at least 7 segments in queue
+                                loader: engine.createLoaderClass()
+                            });
+                            p2pml.hlsjs.initHlsJsPlayer(hls);
+                            hls.loadSource(video.src);
+                            hls.attachMedia(video);
+                        }
+                    }
+                }
+            });
+        } else {
+            document.write("Not supported :(");
+        }
+    </script>
 
 	<br>
 	<!-- 固定标签 -->
