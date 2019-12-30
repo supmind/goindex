@@ -258,14 +258,12 @@ function file_video(path){
 	<br>
 <div id="dplayer"></div>
     <script>
-            window.dp = new DPlayer({
-                container: document.getElementById("dplayer"),
-                video: {
-                    url: "${url}",
-                        }
-                    }
-);
-  
+const dp = new DPlayer({
+    container: document.getElementById('dplayer'),
+    video: {
+        url: '${url}',
+    },
+});
     </script>
 
 	<br>
