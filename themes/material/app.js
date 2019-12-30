@@ -146,7 +146,7 @@ function list_files(path,files){
                 });
             }
             var ext = p.split('.').pop();
-            if("|html|php|css|go|java|js|json|txt|sh|md|mp4|bmp|jpg|jpeg|png|gif|".indexOf(`|${ext}|`) >= 0){
+            if("|html|php|css|go|java|js|json|txt|sh|md|mp4|bmp|jpg|jpeg|png|gif|mkv|".indexOf(`|${ext}|`) >= 0){
 	            p += "?a=view";
 	            c += " view";
             }
@@ -189,6 +189,9 @@ function file(path){
 	}
 
 	if("|mp4|".indexOf(`|${ext}|`) >= 0){
+		return file_video(path);
+	}
+	if("|mkv|".indexOf(`|${ext}|`) >= 0){
 		return file_video(path);
 	}
 
@@ -258,14 +261,12 @@ function file_video(path){
 	<br>
 <div id="dplayer"></div>
     <script>
-            window.dp = new DPlayer({
-                container: document.getElementById("dplayer"),
-                video: {
-                    url: "${url}",
-                        }
-                    }
-);
-  
+const dp = new DPlayer({
+    container: document.getElementById('dplayer'),
+    video: {
+        url: '${url}',
+    },
+});
     </script>
 
 	<br>
