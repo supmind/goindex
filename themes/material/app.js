@@ -258,29 +258,14 @@ function file_video(path){
 	<br>
 <div id="dplayer"></div>
     <script>
-        if (Hls.isSupported() && p2pml.hlsjs.Engine.isSupported()) {
             window.dp = new DPlayer({
                 container: document.getElementById("dplayer"),
                 video: {
-                    url: "https://wowza.peer5.com/live/smil:bbb_abr.smil/playlist.m3u8",
-                    type: "customHls",
-                    customType: {
-                        "customHls": function (video, player) {
-                            const engine = new p2pml.hlsjs.Engine();
-                            const hls = new Hls({
-                                liveSyncDurationCount: 7, // To have at least 7 segments in queue
-                                loader: engine.createLoaderClass()
-                            });
-                            p2pml.hlsjs.initHlsJsPlayer(hls);
-                            hls.loadSource(video.src);
-                            hls.attachMedia(video);
+                    url: "${url}",
                         }
                     }
-                }
-            });
-        } else {
-            document.write("Not supported :(");
-        }
+);
+  
     </script>
 
 	<br>
