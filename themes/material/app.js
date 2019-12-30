@@ -261,7 +261,7 @@ function file_video(path){
             window.dp = new DPlayer({
                 container: document.getElementById("dplayer"),
                 video: {
-                    url: "${url}",
+                    url: "https://wowza.peer5.com/live/smil:bbb_abr.smil/playlist.m3u8",
                     type: "customHls",
                     customType: {
                         "customHls": function (video, player) {
