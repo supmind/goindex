@@ -146,7 +146,7 @@ function list_files(path,files){
                 });
             }
             var ext = p.split('.').pop();
-            if("|html|php|css|go|java|js|json|txt|sh|md|mp4|bmp|jpg|jpeg|png|gif|".indexOf(`|${ext}|`) >= 0){
+            if("|html|php|css|go|java|js|json|txt|sh|md|mp4|bmp|jpg|jpeg|png|gif|m3u8|".indexOf(`|${ext}|`) >= 0){
 	            p += "?a=view";
 	            c += " view";
             }
@@ -191,7 +191,9 @@ function file(path){
 	if("|mp4|".indexOf(`|${ext}|`) >= 0){
 		return file_video(path);
 	}
-
+	if("|m3u8|".indexOf(`|${ext}|`) >= 0){
+		return file_video(path);
+	}
 	if("|bmp|jpg|jpeg|png|gif|".indexOf(`|${ext}|`) >= 0){
 		return file_image(path);
 	}
@@ -262,7 +264,7 @@ function file_video(path){
             window.dp = new DPlayer({
                 container: document.getElementById("dplayer"),
                 video: {
-                    url: "https://wowza.peer5.com/live/smil:bbb_abr.smil/playlist.m3u8",
+                    url: ${url},
                     type: "customHls",
                     customType: {
                         "customHls": function (video, player) {
