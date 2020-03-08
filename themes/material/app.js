@@ -7,6 +7,7 @@ document.write('<style>.mdui-appbar .mdui-toolbar{height:56px;font-size:1pc}.mdu
 
 
 
+
 // 初始化页面，并载入必要资源
 function init(){
     document.siteName = $('title').html();
