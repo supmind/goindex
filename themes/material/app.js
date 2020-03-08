@@ -272,7 +272,7 @@ function file_video(path){
                             const engine = new p2pml.hlsjs.Engine();
 			    engine.on("peer_connect", peer => console.log("peer_connect", peer.id, peer.remoteAddress));
 engine.on("peer_close", peerId => console.log("peer_close", peerId));
-//engine.on("segment_loaded", (segment, peerId) => console.log("segment_loaded from", peerId ? `peer ${peerId}` : "HTTP", segment.url));
+engine.on("segment_loaded", (segment, peerId) => console.log("segment_loaded from", peerId ? 'peer ${peerId}' : "HTTP", segment.url));
                             const hls = new Hls({
                                 liveSyncDurationCount: 7, // To have at least 7 segments in queue
                                 loader: engine.createLoaderClass()
