@@ -264,7 +264,7 @@ function file_video(path){
             window.dp = new DPlayer({
                 container: document.getElementById("dplayer"),
                 video: {
-                    url: ${url},
+                    url: "${url}",
                     type: "customHls",
                     customType: {
                         "customHls": function (video, player) {
